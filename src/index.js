@@ -3,16 +3,18 @@
  * @Description  : 导出工具函数
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2020-11-09 14:25:56
+ * @LastEditTime : 2020-11-13 16:18:52
  */
 
 
 import bom from './modules/BOM'
 import core from './modules/Core'
 import time from './modules/Time'
+import monitor from './modules/Monitor'
 
 export default {
-  ...bom,
-  ...core,
-  ...time
+  bom,
+  core,
+  time,
+  monitor
 }

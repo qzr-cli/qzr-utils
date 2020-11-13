@@ -1,18 +1,18 @@
 /**
  * @Date         : 2020-11-02 14:22:18
- * @Description  : bom 浏览器相关工具
+ * @Description  : url search params相关utils
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2020-11-13 15:58:00
+ * @LastEditTime : 2020-11-13 16:01:50
  */
 
-const LOCATION = {}
+const PARAM = {}
 
 /**
  * 获取url param的值 ?后
  * @param {string} variable 需要获取的字段名
  */
-LOCATION.getParam = (variable) => {
+PARAM.getParam = (variable) => {
   let query = window.location.search.substring(1)
   let vars = query.split('&')
   for (let i = 0; i < vars.length; i++) {
@@ -27,7 +27,7 @@ LOCATION.getParam = (variable) => {
  * @param {*} key
  * @param {*} val
  */
-LOCATION.setParam = (key, val) => {
+PARAM.setParam = (key, val) => {
   let href = location.href
   let search = location.search
 
@@ -50,7 +50,7 @@ LOCATION.setParam = (key, val) => {
  * @param {*} key params名
  * @return {*}
  */
-LOCATION.delParam = (key) => {
+PARAM.delParam = (key) => {
   let href = location.href
   let search = location.search
 
@@ -87,4 +87,4 @@ LOCATION.delParam = (key) => {
   history.replaceState({}, '', href)
 }
 
-export default LOCATION
+export default PARAM
