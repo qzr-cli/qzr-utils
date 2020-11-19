@@ -3,10 +3,10 @@
  * @Description  : 用户信息收集
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2020-11-13 17:26:26
+ * @LastEditTime : 2020-11-19 14:15:43
  */
 
-class User {
+class Userinfo {
   constructor() {
     this.navigator
     this.appCodeName // 浏览器代码名
@@ -58,3 +58,5 @@ class User {
 
   }
 }
+
+export default Userinfo

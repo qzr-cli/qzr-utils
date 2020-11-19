@@ -3,7 +3,7 @@
  * @Description  : 监控相关utils
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2020-11-13 16:28:00
+ * @LastEditTime : 2020-11-19 14:17:33
 -->
 
 # 监控相关工具
@@ -29,4 +29,12 @@ const error = new ErrorPerformance()
 error.resError  // 资源错误
 error.jsError   // js错误
 error.promiseError  // promise错误
+```
+
+## userInfo
+
+获取用户相关信息
+
+```js
+const userInfo = new UserInfo()
 ```
