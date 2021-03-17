@@ -1,12 +1,30 @@
 {
-  "name": "qzr-utils",
+  "name": "@constq/qzr-utils",
   "version": "1.0.0",
   "description": "",
+  "private": false,
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "webpack --mode production",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "server": "cross-env NODE_ENV=development webpack-dev-server --mode development"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "邱卓然 <z5021996@vip.qq.com>",
+  "license": "ISC",
+  "repository": "git@github.com:qzr-cli/qzr-utils.git",
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/preset-env": "^7.13.10",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.22.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "webpack": "^5.25.1",
+    "webpack-cli": "3",
+    "webpack-dev-server": "^3.11.2"
+  }
 }

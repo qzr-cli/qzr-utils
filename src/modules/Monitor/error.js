@@ -3,7 +3,7 @@
  * @Description  : 错误监控相关代码
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2020-11-13 16:25:38
+ * @LastEditTime : 2021-03-17 11:33:25
  */
 
 class ErrorPerformance {
@@ -27,14 +27,14 @@ class ErrorPerformance {
 
     addEventListener('error', e => {
       const target = e.target
-      if (target != window) {
+      if (target !== window) {
         THAT.resError.push({
-              type: target.localName,
-              url: target.src || target.href,
-              msg: (target.src || target.href) + ' is load error',
-              // 错误发生的时间
-              time: new Date().getTime(),
-          })
+          type: target.localName,
+          url: target.src || target.href,
+          msg: (target.src || target.href) + ' is load error',
+          // 错误发生的时间
+          time: new Date().getTime(),
+        })
       }
     }, true)
   }
@@ -44,13 +44,13 @@ class ErrorPerformance {
 
     window.onerror = function(msg, url, row, col, error) {
       THAT.jsError.push({
-          type: 'javascript',
-          row: row,
-          col: col,
-          msg: error && error.stack? error.stack : msg,
-          url: url,
-          // 错误发生的时间
-          time: new Date().getTime(),
+        type: 'javascript',
+        row: row,
+        col: col,
+        msg: error && error.stack ? error.stack : msg,
+        url: url,
+        // 错误发生的时间
+        time: new Date().getTime(),
       })
     }
   }
@@ -60,10 +60,10 @@ class ErrorPerformance {
 
     addEventListener('unhandledrejection', e => {
       THAT.promiseError.push({
-          type: 'promise',
-          msg: (e.reason && e.reason.msg) || e.reason || '',
-          // 错误发生的时间
-          time: new Date().getTime(),
+        type: 'promise',
+        msg: (e.reason && e.reason.msg) || e.reason || '',
+        // 错误发生的时间
+        time: new Date().getTime(),
       })
     })
   }

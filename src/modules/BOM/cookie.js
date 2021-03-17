@@ -3,7 +3,7 @@
  * @Description  : cookie 方法
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2020-11-03 10:44:34
+ * @LastEditTime : 2021-03-17 11:35:27
  */
 
 
@@ -11,11 +11,12 @@ const COOKIE = {}
 
 /**
  * @description: 获取单个cookie属性
- * @param {string} name 
+ * @param {string} name
  * @return {object}
  */
-COOKIE.get = async(name) => {
-  return await cookieStore.get(name)
+COOKIE.get = async (name) => {
+  const result = await cookieStore.get(name)
+  return result
 }
 
 /**
@@ -23,8 +24,9 @@ COOKIE.get = async(name) => {
  * @param {string} domain 当前域名
  * @return {Array}
  */
-COOKIE.getAll = async(domain) => {
-  return await cookieStore.getAll({ domain })
+COOKIE.getAll = async (domain) => {
+  const result = await cookieStore.getAll({ domain })
+  return result
 }
 
 /**
@@ -32,14 +34,15 @@ COOKIE.getAll = async(domain) => {
  * @param {string} key
  * @param {*} val
  * @param {string} domain
- * @return {undefined} 
+ * @return {undefined}
  */
-COOKIE.set = async({ key = '', val = '', domain = null}) => {
-  return await cookieStore.set({
+COOKIE.set = async ({ key = '', val = '', domain = null }) => {
+  const result = await cookieStore.set({
     name: key,
     value: val,
     domain
   })
+  return result
 }
 
 /**
@@ -47,8 +50,9 @@ COOKIE.set = async({ key = '', val = '', domain = null}) => {
  * @param {*} name cookie的key
  * @return {null}
  */
-COOKIE.del = async(name) => {
-  return await cookieStore.delete(name)
+COOKIE.del = async (name) => {
+  const result = await cookieStore.delete(name)
+  return result
 }
 
 /**
@@ -57,6 +61,21 @@ COOKIE.del = async(name) => {
  */
 COOKIE.addEventListener = (fn) => {
   cookieStore.addEventListener('change', e => fn(e))
+}
+
+/**
+ * @description: 添加cookie事件监听器
+ * @param {*} host
+ */
+COOKIE.clearAll = function(host) {
+  let keys = document.cookie.match(/[^ =;]+(?==)/g)
+  if (keys) {
+    for (let i = keys.length; i--;) {
+      document.cookie = keys[i] + '=0;path=/;expires=' + new Date(0).toUTCString() // 清除当前域名下的,例如：m.ratingdog.cn
+      document.cookie = keys[i] + '=0;path=/;domain=' + document.domain + ';expires=' + new Date(0).toUTCString() // 清除当前域名下的，例如 .m.ratingdog.cn
+      document.cookie = keys[i] + '=0;path=/;domain=' + host + ';expires=' + new Date(0).toUTCString() // 清除一级域名下的或指定的，例如 .ratingdog.cn
+    }
+  }
 }
 
 export default COOKIE
