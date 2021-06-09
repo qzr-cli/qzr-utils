@@ -3,7 +3,7 @@
  * @Description  : webapck
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2021-03-17 11:27:22
+ * @LastEditTime : 2021-06-09 15:42:12
  */
 
 const path = require('path')
@@ -34,7 +34,12 @@ const config = {
     rules: [{
       test: /\.js$/,
       exclude: /node_modules/,
-      use: ['babel-loader', 'eslint-loader']
+      use: [{
+        loader: 'babel-loader',
+        options: {
+          plugins: ['@babel/plugin-transform-runtime']
+        }
+      }, 'eslint-loader'],
     }]
   },
   plugins: [

@@ -1,6 +1,6 @@
 {
   "name": "@constq/qzr-utils",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "",
   "private": false,
   "main": "index.js",
@@ -9,7 +9,9 @@
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "server": "cross-env NODE_ENV=development webpack-dev-server --mode development"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "keywords": [],
   "author": "邱卓然 <z5021996@vip.qq.com>",
   "license": "ISC",
@@ -17,6 +19,7 @@
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-transform-runtime": "^7.14.3",
     "@babel/preset-env": "^7.13.10",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",

@@ -3,9 +3,9 @@
  * @Description  : QZR 工具函数
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2021-03-25 10:53:33
+ * @LastEditTime : 2021-06-09 15:32:16
 -->
 
 # 工具函数整合
 
-yarn add @constq/qzr-utils
+yarn add @constq/qzr-utils -D
