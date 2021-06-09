@@ -10,7 +10,6 @@
     "server": "cross-env NODE_ENV=development webpack-dev-server --mode development"
   },
   "files": [
-    "dist",
     "src"
   ],
   "keywords": [],
@@ -28,6 +27,7 @@
     "eslint": "^7.22.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.22.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^5.25.1",
     "webpack-cli": "3",
     "webpack-dev-server": "^3.11.2"

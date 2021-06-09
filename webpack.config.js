@@ -3,30 +3,35 @@
  * @Description  : webapck
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2021-06-09 15:42:12
+ * @LastEditTime : 2021-06-09 17:25:17
  */
 
 const path = require('path')
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const isProd = process.env.NODE_ENV === 'production'
 const PORT = 1717
 
 const config = {
+  // devtool: 'hidden-source-map',
   entry: {
     main: path.resolve(__dirname, './src/index.js')
   },
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'index.js'
+    filename: 'index.js',
+    environment: {
+      arrowFunction: false
+    }
   },
-  devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
-    host: 'localhost',
-    compress: true,
-    port: PORT
-  },
+  // devServer: {
+  //   contentBase: path.resolve(__dirname, 'dist'),
+  //   host: 'localhost',
+  //   compress: true,
+  //   port: PORT
+  // },
   resolve: { // 配置路径别名
     extensions: ['.js'] // import引入文件的时候不用加后缀
   },
@@ -47,8 +52,8 @@ const config = {
       verbose: true, // 打印被删除的文件
       protectWebpackAssets: false, // 允许删除cleanOnceBeforeBuildPatterns中的文件
       cleanOnceBeforeBuildPatterns: ['**/*', path.resolve(__dirname, 'dist')]
-    })
-  ]
+    }),
+  ],
 }
 
 module.exports = config
