@@ -9,6 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "server": "cross-env NODE_ENV=development webpack-dev-server --mode development"
   },
+  "files": ["dist"],
   "keywords": [],
   "author": "邱卓然 <z5021996@vip.qq.com>",
   "license": "ISC",

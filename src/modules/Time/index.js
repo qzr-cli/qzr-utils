@@ -3,9 +3,43 @@
  * @Description  : 时间相关工具函数
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2021-03-17 11:29:00
+ * @LastEditTime : 2021-03-30 15:44:36
  */
 
+
+class Time {
+  constructor(val) {
+    this.date = new Date(val)
+
+    this.Year = this.date.getYear() // 获取当前年份(2位)
+
+    this.FullYear = this.date.getFullYear() // 获取完整的年份(4位,1970-????)
+
+    this.Month = this.date.getMonth() + 1 // 获取当前月份(0-11,0代表1月)         // 所以获取当前月份是myDate.getMonth()+1;
+
+    this.Date = this.date.getDate() // 获取当前日(1-31)
+
+    this.Day = this.date.getDay() + 1 // 获取当前星期X(0-6,0代表星期天)
+
+    this.Time = this.date.getTime() // 获取当前时间(从1970.1.1开始的毫秒数)
+
+    this.Hours = this.date.getHours() // 获取当前小时数(0-23)
+
+    this.Minutes = this.date.getMinutes() // 获取当前分钟数(0-59)
+
+    this.Seconds = this.date.getSeconds() // 获取当前秒数(0-59)
+
+    this.Milliseconds = this.date.getMilliseconds() // 获取当前毫秒数(0-999)
+
+    this.ocaleDateString = this.date.toLocaleDateString() // 获取当前日期
+
+    this.localeTimeString = this.date.toLocaleTimeString() // 获取当前时间
+
+    this.toLocaleString = this.date.toLocaleString() // 获取日期与时间
+
+    this.timestamp = this.date.getTime()  // 获取时间戳
+  }
+}
 
 const TIME = {}
 
@@ -58,4 +92,9 @@ TIME.formatToS = (val) => {
   let s = Number(value.slice(6, 8))
 
   return h * 60 * 60 + m * 60 + s
+}
+
+
+TIME.formatDefault = val => {
+  let date = new Date(val)
 }
