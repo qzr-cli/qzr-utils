@@ -3,7 +3,7 @@
  * @Description  : 时间相关工具函数
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2021-06-09 15:44:19
+ * @LastEditTime : 2021-06-09 18:15:58
  */
 
 
@@ -41,12 +41,14 @@ class Time {
   }
 }
 
+const TIME = {}
+
 /**
  * @description: 秒转化为00:00:00格式
  * @param {string | number} value
  * @return {string} HH:mm:ss格式
  */
-Time.formatSeconds = (value) => {
+TIME.formatSeconds = (value) => {
   let theTime = parseInt(value) // 秒
   let theTime1 = 0 // 分
   let theTime2 = 0 // 小时
@@ -83,7 +85,7 @@ Time.formatSeconds = (value) => {
  * @param {string} val HH:mm:ss格式
  * @return {string} 秒数
  */
-Time.formatToS = (val) => {
+TIME.formatToS = (val) => {
   let value = String(val)
   let h = Number(value.slice(0, 2))
   let m = Number(value.slice(3, 5))
@@ -93,8 +95,10 @@ Time.formatToS = (val) => {
 }
 
 
-Time.formatDefault = val => {
+TIME.formatDefault = val => {
   let date = new Date(val)
 }
 
-export default new Time()
+TIME.time = Time
+
+export default TIME
