@@ -3,7 +3,7 @@
  * @Description  : 用户信息收集
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2021-03-17 11:32:48
+ * @LastEditTime : 2021-09-01 11:16:52
  */
 
 class Userinfo {
@@ -25,7 +25,7 @@ class Userinfo {
 
   _init() {
     this.navigator = window.navigator
-    if (this.navigator) throw Error('不支持navigator')
+    if (!this.navigator) throw Error('不支持navigator')
 
     this._set()
   }
