@@ -3,11 +3,11 @@
  * @Description  : js常用utils方法
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2021-06-16 11:30:49
+ * @LastEditTime : 2021-09-02 11:09:04
  */
 
 
-import core from './core'
+import core from './modules/core'
 import Sleep from './modules/sleep'
 
 export default {

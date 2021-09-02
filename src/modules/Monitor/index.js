@@ -3,13 +3,13 @@
  * @Description  : 监控相关代码
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2020-11-19 14:16:19
+ * @LastEditTime : 2021-09-02 11:01:31
  */
 
 
-import Performance from './performance'
-import ErrorPerformance from './error'
-import UserInfo from './userInfo'
+import Performance from './modules/performance'
+import ErrorPerformance from './modules/error'
+import UserInfo from './modules/userInfo'
 
 export default {
   Performance,

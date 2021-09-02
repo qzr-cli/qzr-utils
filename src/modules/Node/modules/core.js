@@ -3,7 +3,11 @@
  * @Description  : node 核心方法
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2020-11-23 15:46:05
+ * @LastEditTime : 2021-09-02 11:11:35
  */
 
-const Node = {}
+class Core {
+
+}
+
+export default Core
