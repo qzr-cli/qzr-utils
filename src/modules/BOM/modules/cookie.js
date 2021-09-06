@@ -3,7 +3,7 @@
  * @Description  : cookie 方法
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2021-09-02 11:05:21
+ * @LastEditTime : 2021-09-06 15:26:58
  */
 
 
@@ -26,7 +26,7 @@ class Cookie {
    * 格式化所有cookie
    */
   static parseAll() {
-    const cookie = Cookie.getAll
+    const cookie = Cookie.getAll()
     return Cookie.parse(cookie)
   }
 
