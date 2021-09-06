@@ -3,7 +3,7 @@
  * @Description  : cookie 方法
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2021-09-06 15:26:58
+ * @LastEditTime : 2021-09-06 15:38:53
  */
 
 
@@ -56,11 +56,13 @@ class Cookie {
    * @param {string} day
    * @return {undefined}
    */
-  static set({ key, val, day = 1 }) {
+  static set({ key, val, path = false, day = 1 }) {
     let d = new Date()
     d.setTime(d.getTime() + (day * 24 * 60 * 60 * 1000))
     let expires = 'expires=' + d.toGMTString()
-    document.cookie = key + '=' + val + '; ' + expires
+    let result = key + '=' + val + '; ' + expires
+    if (path) result += `;path=${path}`
+    document.cookie = result
   }
 
   /**
