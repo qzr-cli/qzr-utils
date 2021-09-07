@@ -3,7 +3,7 @@
  * @Description  : cookie 方法
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2021-09-06 15:38:53
+ * @LastEditTime : 2021-09-07 10:26:19
  */
 
 
@@ -70,8 +70,10 @@ class Cookie {
    * @param {*} name cookie的key
    * @return {null}
    */
-  static del(key) {
-    document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 GMT`
+  static del(key, path = false) {
+    let result = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 GMT`
+    if (path) result += `;path=${path}`
+    document.cookie = result
   }
 
 
