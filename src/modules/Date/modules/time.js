@@ -3,7 +3,7 @@
  * @Description  : 时间相关工具函数
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2021-09-02 11:39:48
+ * @LastEditTime : 2021-09-15 11:14:00
  */
 
 
@@ -41,7 +41,7 @@ class Time {
   }
 
   formatDefault() {
-    return `${this.Year}-${this.Month}-${this.Date}`
+    return `${this.FullYear}-${Time.add0(this.Month)}-${Time.add0(this.Date)}`
   }
 
   /**
@@ -98,6 +98,11 @@ class Time {
 
   static formatDefault(val) {
     let date = new Date(val)
+  }
+
+  static add0(val) {
+    if (Number(val) < 10) return `0${val}`
+    else return val
   }
 }
 
