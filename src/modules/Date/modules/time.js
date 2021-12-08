@@ -3,7 +3,7 @@
  * @Description  : 时间相关工具函数
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2021-09-15 11:14:00
+ * @LastEditTime : 2021-10-19 17:24:10
  */
 
 
@@ -40,8 +40,30 @@ class Time {
     this.timestamp = this.date.getTime()  // 获取时间戳
   }
 
-  formatDefault() {
+  static formatDefault() {
     return `${this.FullYear}-${Time.add0(this.Month)}-${Time.add0(this.Date)}`
+  }
+
+  /**
+   *
+   * @param {string} formater 格式化的格式 例如YYYY-MM-DD HH:mm:ss
+   * @returns {formater}
+   */
+  static formate(formater) {
+    let Y = this.FullYear
+    let M = this.Month
+    let D = this.Date
+    let H = this.Hours
+    let m = this.Minutes
+    let s = this.Seconds
+
+    return formater.replace(/YYYY|yyyy/g, Y)
+      .replace(/YY|yy/g, Y.substr(2, 2))
+      .replace(/MM/g, (M < 10 ? '0' : '') + M)
+      .replace(/DD/g, (D < 10 ? '0' : '') + D)
+      .replace(/HH|hh/g, (H < 10 ? '0' : '') + H)
+      .replace(/mm/g, (m < 10 ? '0' : '') + m)
+      .replace(/ss/g, (s < 10 ? '0' : '') + s)
   }
 
   /**
@@ -95,10 +117,6 @@ class Time {
     return h * 60 * 60 + m * 60 + s
   }
 
-
-  static formatDefault(val) {
-    let date = new Date(val)
-  }
 
   static add0(val) {
     if (Number(val) < 10) return `0${val}`
