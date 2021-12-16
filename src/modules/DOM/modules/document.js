@@ -6,7 +6,7 @@
  * @LastEditTime : 2021-10-19 17:33:37
  */
 
-class Document {
+export default class Document {
   // 屏蔽右键
   static rightClick() {
     document.oncontextmenu = function() {
