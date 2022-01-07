@@ -3,7 +3,7 @@
  * @Description  : 错误监控相关代码
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2021-03-17 11:33:25
+ * @LastEditTime : 2022-01-07 11:18:33
  */
 
 class ErrorPerformance {
@@ -28,13 +28,15 @@ class ErrorPerformance {
     addEventListener('error', e => {
       const target = e.target
       if (target !== window) {
-        THAT.resError.push({
+        const errorInfo = {
           type: target.localName,
           url: target.src || target.href,
           msg: (target.src || target.href) + ' is load error',
           // 错误发生的时间
           time: new Date().getTime(),
-        })
+        }
+        THAT.resError.push(errorInfo)
+        console.error(errorInfo)
       }
     }, true)
   }
@@ -43,7 +45,7 @@ class ErrorPerformance {
     const THAT = this
 
     window.onerror = function(msg, url, row, col, error) {
-      THAT.jsError.push({
+      const errorInfo = {
         type: 'javascript',
         row: row,
         col: col,
@@ -51,7 +53,9 @@ class ErrorPerformance {
         url: url,
         // 错误发生的时间
         time: new Date().getTime(),
-      })
+      }
+      THAT.jsError.push(errorInfo)
+      console.error(errorInfo)
     }
   }
 
@@ -59,12 +63,14 @@ class ErrorPerformance {
     const THAT = this
 
     addEventListener('unhandledrejection', e => {
-      THAT.promiseError.push({
+      const errorInfo = {
         type: 'promise',
         msg: (e.reason && e.reason.msg) || e.reason || '',
         // 错误发生的时间
         time: new Date().getTime(),
-      })
+      }
+      THAT.promiseError.push(errorInfo)
+      console.log(errorInfo)
     })
   }
 }

@@ -3,7 +3,7 @@
  * @Description  : 用户信息收集
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2021-10-19 17:42:25
+ * @LastEditTime : 2022-01-07 11:28:13
  */
 
 class Userinfo {
@@ -21,6 +21,20 @@ class Userinfo {
     this.client = '' // 当前浏览器环境
 
     this._init()
+  }
+
+  _console() {
+    console.info('终端信息', {
+      '浏览器代码名': this.appCodeName,
+      '浏览器名称': this.appName,
+      '浏览器平台和版本信息': this.appVersion,
+      '浏览器造作系统平台': this.platform,
+      '当前浏览器语言': this.browserLanguage,
+      '系统默认语言': this.systemLanguage,
+      '系统自然语言设置': this.userLanguage,
+
+      '当前浏览器环境': this.client,
+    })
   }
 
   _init() {

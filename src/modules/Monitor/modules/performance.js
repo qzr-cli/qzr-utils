@@ -3,7 +3,7 @@
  * @Description  : 性能监控class
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2021-03-17 11:33:02
+ * @LastEditTime : 2022-01-07 11:24:44
  */
 
 /**
@@ -21,6 +21,23 @@ class Performance {
 
   init() {
     this._getPerformance()
+    this._getResources()
+    this._console()
+  }
+
+  // 提示性能信息
+  _console() {
+    console.info('性能信息', {
+      '重定向耗时': this.performance.redirect,
+      '白屏时间': this.performance.whiteScreen,
+      'DOM渲染耗时': this.performance.dom,
+      '页面加载耗时': this.performance.load,
+      '页面卸载耗时': this.performance.unload,
+      '请求耗时': this.performance.request,
+      '当前时间': this.performance.time
+    })
+
+    console.info('资源加载详情', this.resource)
   }
 
   // 获取性能信息
