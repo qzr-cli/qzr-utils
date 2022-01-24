@@ -1,16 +1,16 @@
 {
   "name": "@constq/qzr-utils",
-  "version": "1.1.17",
+  "version": "1.2.0",
   "description": "",
   "private": false,
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "webpack --mode production",
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "server": "cross-env NODE_ENV=development webpack-dev-server --mode development"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "keywords": [],
   "author": "邱卓然 <z5021996@vip.qq.com>",
@@ -27,6 +27,10 @@
     "eslint": "^7.22.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.22.1",
+    "typescript": "^4.5.4",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "@constq/eslint-config-qzr": "latest",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^5.25.1",
     "webpack-cli": "3",
