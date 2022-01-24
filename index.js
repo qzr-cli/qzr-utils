@@ -6,6 +6,6 @@
  * @LastEditTime : 2021-06-09 18:11:18
  */
 
-import utils from './src'
+import utils from './dist'
 
 export default utils
