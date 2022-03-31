@@ -27,11 +27,11 @@ let exportObj = {
   regular
 }
 
-if (typeof window === 'undefined') {
-  exportObj = {
-    ...exportObj,
-    ...import('./modules/Node')
-  }
-}
+// if (typeof window === 'undefined') {
+//   exportObj = {
+//     ...exportObj,
+//     ...import('./modules/Node')
+//   }
+// }
 
 export default exportObj
