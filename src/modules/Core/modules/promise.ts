@@ -13,7 +13,7 @@
  * @function stop 停止结束
  * @function pause 挂起
  */
-class Pause {
+ export class Pause {
   resolve: any
   reject: any
   constructor() {
@@ -41,4 +41,46 @@ class Pause {
   }
 }
 
-export default Pause
+/**
+ * 控制并发promise
+ */
+export class promsieLimit {
+  max: number
+  cb: any
+  pool: any[]
+  pathList: string[]
+  constructor(max:number, cb:any) {
+    this.pool = []
+    this.max = max
+    this.cb = cb
+    this.pathList = []
+  }
+
+  start(path:string) {
+    this.pathList = [...path]
+    while (this.pool.length < this.max) {
+      this.setTask(this.pathList.shift())
+    }
+    const race = Promise.race(this.pool)
+    this.run(race)
+  }
+
+  run(race:any) {
+    race.then(() => {
+      const path = this.pathList.shift()
+      this.setTask(path)
+      this.run(Promise.race(this.pool))
+    })
+  }
+
+  setTask(path:string | undefined) {
+    if(!path) return
+    const promise = this.cb(path)
+    this.pool.push(promise)
+
+    promise.then(() => {
+      this.pool.splice(this.pool.indexOf(promise), 1)
+    })
+
+  }
+}
