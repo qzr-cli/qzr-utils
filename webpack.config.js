@@ -3,7 +3,7 @@
  * @Description  : webapck
  * @Autor        : Qzr(z5021996@vip.qq.com)
  * @LastEditors  : Qzr(z5021996@vip.qq.com)
- * @LastEditTime : 2021-06-09 17:25:17
+ * @LastEditTime : 2022-03-31 08:54:42
  */
 
 const path = require('path')
@@ -17,7 +17,7 @@ const PORT = 1717
 const config = {
   // devtool: 'hidden-source-map',
   entry: {
-    main: path.resolve(__dirname, './src/index.js')
+    main: path.resolve(__dirname, './src/index.ts')
   },
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -33,7 +33,7 @@ const config = {
   //   port: PORT
   // },
   resolve: { // 配置路径别名
-    extensions: ['.js'] // import引入文件的时候不用加后缀
+    extensions: ['.ts'] // import引入文件的时候不用加后缀
   },
   module: {
     rules: [{

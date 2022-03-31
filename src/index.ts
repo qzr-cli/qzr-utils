@@ -27,7 +27,7 @@ let exportObj = {
   regular
 }
 
-if(typeof window === 'undefined') {
+if (typeof window === 'undefined') {
   exportObj = {
     ...exportObj,
     ...import('./modules/Node')

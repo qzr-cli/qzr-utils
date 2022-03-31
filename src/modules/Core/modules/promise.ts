@@ -13,7 +13,7 @@
  * @function stop 停止结束
  * @function pause 挂起
  */
- export class Pause {
+class Pause {
   resolve: any
   reject: any
   constructor() {
@@ -44,7 +44,7 @@
 /**
  * 控制并发promise
  */
-export class promsieLimit {
+class Limit {
   max: number
   cb: any
   pool: any[]
@@ -84,3 +84,5 @@ export class promsieLimit {
 
   }
 }
+
+export default {Limit, Pause}

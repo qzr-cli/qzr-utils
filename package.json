@@ -4,10 +4,9 @@
   "description": "",
   "private": false,
   "main": "dist/index.js",
+  "browser": "dist",
   "scripts": {
-    "test": "webpack --mode production",
-    "build": "cross-env NODE_ENV=production webpack --mode production",
-    "server": "cross-env NODE_ENV=development webpack-dev-server --mode development"
+    "build": "rollup -c"
   },
   "files": [
     "dist"
@@ -21,19 +20,20 @@
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/plugin-transform-runtime": "^7.14.3",
     "@babel/preset-env": "^7.13.10",
+    "@constq/eslint-config-qzr": "latest",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
     "babel-loader": "^8.2.2",
-    "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^7.0.3",
     "eslint": "^7.22.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.22.1",
-    "typescript": "^4.5.4",
-    "@typescript-eslint/eslint-plugin": "^4.22.0",
-    "@typescript-eslint/parser": "^4.22.0",
-    "@constq/eslint-config-qzr": "latest",
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^5.25.1",
-    "webpack-cli": "3",
-    "webpack-dev-server": "^3.11.2"
+    "rollup": "^2.70.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript": "^1.0.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.6.3"
   }
 }
