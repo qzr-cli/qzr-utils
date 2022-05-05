@@ -13,7 +13,7 @@
  * @function stop 停止结束
  * @function pause 挂起
  */
-class Pause {
+export class Pause {
   resolve: any
   reject: any
   constructor() {
@@ -44,7 +44,7 @@ class Pause {
 /**
  * 控制并发promise
  */
-class Limit {
+export class Limit {
   max: number
   cb: any
   pool: any[]
@@ -56,25 +56,25 @@ class Limit {
     this.pathList = []
   }
 
-  start(path:string) {
+  start(path:any[]) {
     this.pathList = [...path]
-    while (this.pool.length < this.max) {
-      this.setTask(this.pathList.shift())
+    while ((this.pool.length < this.max) && (this.pathList.length > 0)) {
+      this._setTask(this.pathList.shift())
     }
     const race = Promise.race(this.pool)
-    this.run(race)
+    this._run(race)
   }
 
-  run(race:any) {
+  private _run(race:any) {
     race.then(() => {
       const path = this.pathList.shift()
-      this.setTask(path)
-      this.run(Promise.race(this.pool))
+      this._setTask(path)
+      this._run(Promise.race(this.pool))
     })
   }
 
-  setTask(path:string | undefined) {
-    if(!path) return
+  private _setTask(path:string | undefined) {
+    if (!path) return
     const promise = this.cb(path)
     this.pool.push(promise)
 
@@ -84,5 +84,3 @@ class Limit {
 
   }
 }
-
-export default {Limit, Pause}

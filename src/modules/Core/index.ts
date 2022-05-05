@@ -9,11 +9,12 @@
 
 import Core from './modules/core'
 import Sleep from './modules/sleep'
-import Promise from './modules/promise'
+import { Pause, Limit } from './modules/promise'
 
 /** js常用方法 */
 export default {
   Core,
   Sleep,
-  Promise
+  Pause,
+  Limit
 }
