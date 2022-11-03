@@ -18,7 +18,7 @@ class Core {
    * @param start 开始
    * @param end 结束
    * @param step 步进
-   * @returns 
+   * @returns
    */
   static dateRangeGenerator(start:string, end:string, step = 1) {
     let result = []

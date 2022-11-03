@@ -21,7 +21,7 @@ export default class Localstorage {
    */
   static get(key:string) {
     const data:string = localStorage.getItem(key) ?? ''
-    return JSON.parse(data)
+    return data ? JSON.parse(data) : data
   }
 
   /**

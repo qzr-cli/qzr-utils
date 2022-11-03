@@ -17,7 +17,8 @@ class Core {
    * @param {*} item 传入需要判断的变量
    * @return {string} string/object/array/number/boolean/undefined/null/symbol
    */
-  static checkType(item:any):string {
+
+  static checkType(item:any):'string'|'object'|'array'|'number'|'boolean'|'undefined'|'null'|'symbol' {
     const handle = Function.prototype.call.bind(Object.prototype.toString)  // 防止Object.prototype.toString方法被覆盖污染
     const type = handle(item)
     return type.slice(8, -1).toLowerCase()
@@ -36,6 +37,23 @@ class Core {
       randomStr += chars.charAt(Math.floor(Math.random() * strLen))
     }
     return randomStr
+  }
+
+  /**
+   * 删除对象为空的属性
+   * @param obj 对象
+   */
+  static delEmptyAttr(obj: {
+    [index:string]: any
+  }) {
+    for (const key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        const item = obj[key]
+        if (!item) delete obj[key]
+      }
+    }
+
+    return obj
   }
 }
 

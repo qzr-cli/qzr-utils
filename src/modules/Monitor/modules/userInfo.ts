@@ -30,8 +30,9 @@ class Userinfo {
   userAgent: string
   language: string
   client: string
-  explorerInfo: { 
-    type: string; version: number
+  explorerInfo: {
+    type: string
+    version: number
   }
   isQQorWx: string
   osType: string
@@ -92,42 +93,42 @@ class Userinfo {
   static getExplorerInfo() {
     let t = navigator.userAgent.toLowerCase()
 
-    if(0 <= t.indexOf('msie')) {
+    if (0 <= t.indexOf('msie')) {
       return { // ie < 11
         type: 'IE',
-        version: Number(t.match(/msie ([\d]+)/)??[1])
+        version: Number(t.match(/msie ([\d]+)/) ?? [1])
       }
-    }else if(t.match(/trident\/.+?rv:(([\d.]+))/)) {
+    } else if (t.match(/trident\/.+?rv:(([\d.]+))/)) {
       return { // ie 11
         type: 'IE',
         version: 11
       }
-    }else if(0 <= t.indexOf('edge')) {
+    } else if (0 <= t.indexOf('edge')) {
       return {
         type: 'Edge',
         version: Number(testEmpty(t.match(/edge\/([\d]+)/)))
       }
-    }else if(0 <= t.indexOf('firefox')) {
+    } else if (0 <= t.indexOf('firefox')) {
       return {
         type: 'Firefox',
         version: Number(testEmpty(t.match(/firefox\/([\d]+)/)))
       }
-    }else if(0 <= t.indexOf('chrome')) {
-      return  {
+    } else if (0 <= t.indexOf('chrome')) {
+      return {
         type: 'Chrome',
         version: Number(testEmpty(t.match(/chrome\/([\d]+)/)))
       }
-    }else if(0 <= t.indexOf('opera')) {
+    } else if (0 <= t.indexOf('opera')) {
       return {
         type: 'Opera',
         version: Number(testEmpty(t.match(/opera.([\d]+)/)))
       }
-    }else if(0 <= t.indexOf('Safari')) {
+    } else if (0 <= t.indexOf('Safari')) {
       return {
         type: 'Safari',
         version: Number(testEmpty(t.match(/version\/([\d]+)/)))
       }
-    }else {
+    } else {
       return {
         type: t,
         version: -1
@@ -135,7 +136,7 @@ class Userinfo {
     }
 
     function testEmpty(arr:any) {
-      if(arr) return arr[1]
+      if (arr) return arr[1]
       else return -1
     }
   }
