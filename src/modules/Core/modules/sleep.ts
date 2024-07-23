@@ -25,3 +25,23 @@ class Sleep {
 }
 
 export default Sleep
+
+/**
+ * @description: 判断某个值是否为true
+ * @param {function} fn
+ * @param {*} param2
+ */
+export function checkSomething(fn: () => boolean, { intervalTime = 500, timeout = 1000 }) {
+  return new Promise((resolve, reject) => {
+    const interval = setInterval(() => {
+      if (fn()) {
+        resolve(true)
+        clearInterval(interval)
+      }
+    }, intervalTime)
+
+    setTimeout(() => {
+      reject(new Error('timeout'))
+    }, timeout)
+  })
+}
